@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 # FetchContent_MakeAvailable(SFML)
 
-add_executable(GravSim "src/main.cpp" "src/App/App.cpp" "src/Particle/Particle.cpp")
+add_executable(GravSim "src/main.cpp" "src/App/App.cpp" "src/Particle/Particle.cpp" "src/ParticleSystem/ParticleSystem.cpp" "src/Particle/Trail.cpp" "src/Utility/Randomizer.cpp")
 target_link_libraries(GravSim PRIVATE sfml-graphics sfml-window sfml-system)
 
 if (WIN32) 

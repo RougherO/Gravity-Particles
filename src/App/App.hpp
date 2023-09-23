@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "../Particle/Particle.hpp"
+#include "../ParticleSystem/ParticleSystem.hpp"
 #include <string>
 #include <memory>
 
@@ -19,10 +19,10 @@ private:
     // Clock and Time handling for per frame
     sf::Clock m_clock {};
     sf::Time m_frameTime {};
+    float m_updateRate { 0.02 };
 
     // Particle object
-    Particle m_particle;
-    Particle m_particle2;
+    ParticleSystem ps { 10 };
 
     // Public Constructors
 public:

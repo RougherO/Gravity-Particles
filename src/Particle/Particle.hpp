@@ -1,32 +1,25 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "Trail.hpp"
 
-struct Particle : sf::Drawable, public sf::Transformable {
+struct Particle {
     // Particle attributes
-    double mass {};
-    double X {};
-    double Y {};
-    double Vx {};
-    double Vy {};
-    double Ax {};
-    double Ay {};
-    const double gravity { 9.81 };
+    float mass {};
+    float radius {};
+    sf::Vector2f Coords {};
+    sf::Vector2f Vel {};
+    sf::Vector2f Acc {};
+    sf::Vector2f oldAcc {};
+    sf::Color color {};
+    Trail trails;
 
     // Constructors
     Particle();
-    Particle(double mass, double x, double y);
-
-    // Setter functions
-    void setPosition(float x, float y);
-    void setPosition(const sf::Vector2f& pos);
+    Particle(float mass, float x, float y, float radius, const sf::Color& colour);
 
     // Public member functions
-    void updatePhysics(const sf::Time& frameTime, const sf::Vector2u& windowSize);
+    void setPosition(const sf::Vector2f& pos);
 
-private:
     // SFML-Circle shape object
-    sf::CircleShape m_circle { 5.0 };
-
-    // Private member functions
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    sf::CircleShape m_circle { radius };
 };
